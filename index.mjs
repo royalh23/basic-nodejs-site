@@ -1,12 +1,12 @@
 import http from 'node:http';
 import fs from 'node:fs';
 
-function sendResponse(path, res) {
+function sendResponse(path, res, status) {
   fs.readFile(path, (err, data) => {
     if (err) {
       console.error(err);
     } else {
-      res.writeHead(200, {'Content-Type': 'text/html'});
+      res.writeHead(status, {'Content-Type': 'text/html'});
       res.end(data);
     }
   });
@@ -15,22 +15,22 @@ function sendResponse(path, res) {
 const server = http.createServer((req, res) => {
   switch (req.url) {
     case '/': {
-      sendResponse('./index.html', res);
+      sendResponse('./index.html', res, 200);
       break;
     }
 
     case '/about': {
-      sendResponse('./about.html', res);
+      sendResponse('./about.html', res, 200);
       break;
     }
 
     case '/contact-me': {
-      sendResponse('./contact-me.html', res);
+      sendResponse('./contact-me.html', res, 200);
       break;
     }
 
     default: {
-      sendResponse('./404.html', res);
+      sendResponse('./404.html', res, 404);
     }
   }
 });
