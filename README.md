@@ -1,4 +1,4 @@
-This project creates a basic http server which serves 4 pages depending on the route: 
+This project creates a basic http server which serves 4 pages depending on the route:
 index, about, contact me and 404 pages. Skills practiced:
 
 - Use the `http` module to create a basic server and listen on it;

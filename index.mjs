@@ -6,7 +6,7 @@ function sendResponse(path, res, status) {
     if (err) {
       console.error(err);
     } else {
-      res.writeHead(status, {'Content-Type': 'text/html'});
+      res.writeHead(status, { 'Content-Type': 'text/html' });
       res.end(data);
     }
   });
